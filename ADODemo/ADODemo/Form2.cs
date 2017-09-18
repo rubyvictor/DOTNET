@@ -56,7 +56,7 @@ namespace ADODemo
             String rp = RentalPrice.Text;
             String vic = VideoCode.Text;
 
-            textBox1.Text = queryString;
+            textBox1.Text = queryString;//This displays what the commandText query looks like for practice purpose
             
             //Use Parameters instead of concatenation
 
