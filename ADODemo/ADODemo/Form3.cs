@@ -26,9 +26,29 @@ namespace ADODemo
             String query = "Select MovieTitle from Movies";
 
             SqlCommand cmd = new SqlCommand(query,connect);
-            cmd.Connection = connect;
+            cmd.Connection = connect; 
+
+
+            //Factory Pattern.  Create an object and return it to me, without creating using new keyword
+            //Example.  string.split. instantiate an array object, without instantiating it.
+            //Get reader option. Reader has one record at a time.  
+            //Pointer in DB is at the line before the first record
+           //STep 1: open connection
             connect.Open();
-            cmd.BeginExecuteReader();
+            //Step 2: execute reader
+            SqlDataReader rd = cmd.ExecuteReader();
+            rd.Read();
+
+            //label1.Text = rd[1].ToString();
+            //Label1.Text = rd["MovieTitle"].ToString();
+            while (rd.Read())
+            {
+                //label1.Text = rd["MovieTitle"].ToString();
+                listBox1.Items.Add(rd["MovieTitle"].ToString());
+            }
+
+            rd.Close();
+
             connect.Close();
 
         }
