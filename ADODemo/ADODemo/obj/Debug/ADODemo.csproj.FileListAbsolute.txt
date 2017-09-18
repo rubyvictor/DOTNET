@@ -1,0 +1,12 @@
+C:\Users\Viktory\Documents\GitHub\DOTNET\ADODemo\ADODemo\bin\Debug\ADODemo.exe.config
+C:\Users\Viktory\Documents\GitHub\DOTNET\ADODemo\ADODemo\bin\Debug\ADODemo.exe
+C:\Users\Viktory\Documents\GitHub\DOTNET\ADODemo\ADODemo\bin\Debug\ADODemo.pdb
+C:\Users\Viktory\Documents\GitHub\DOTNET\ADODemo\ADODemo\obj\Debug\ADODemo.csprojResolveAssemblyReference.cache
+C:\Users\Viktory\Documents\GitHub\DOTNET\ADODemo\ADODemo\obj\Debug\ADODemo.Form1.resources
+C:\Users\Viktory\Documents\GitHub\DOTNET\ADODemo\ADODemo\obj\Debug\ADODemo.Properties.Resources.resources
+C:\Users\Viktory\Documents\GitHub\DOTNET\ADODemo\ADODemo\obj\Debug\ADODemo.csproj.GenerateResource.Cache
+C:\Users\Viktory\Documents\GitHub\DOTNET\ADODemo\ADODemo\obj\Debug\ADODemo.csproj.CoreCompileInputs.cache
+C:\Users\Viktory\Documents\GitHub\DOTNET\ADODemo\ADODemo\obj\Debug\ADODemo.exe
+C:\Users\Viktory\Documents\GitHub\DOTNET\ADODemo\ADODemo\obj\Debug\ADODemo.pdb
+C:\Users\Viktory\Documents\GitHub\DOTNET\ADODemo\ADODemo\obj\Debug\ADODemo.Form2.resources
+C:\Users\Viktory\Documents\GitHub\DOTNET\ADODemo\ADODemo\obj\Debug\ADODemo.Form3.resources
