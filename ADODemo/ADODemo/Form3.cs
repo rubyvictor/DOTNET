@@ -59,7 +59,7 @@ namespace ADODemo
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            MessageBox.Show(listBox1.SelectedItem.ToString());
         }
     }
 }
