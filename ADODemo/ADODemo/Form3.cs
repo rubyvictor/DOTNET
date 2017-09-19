@@ -132,7 +132,7 @@ namespace ADODemo
             DataRow r = ds.Tables["Customers"].NewRow();
             r["CustomerID"] = "777";
             r["CompanyName"] = "ViktorLi";
-
+             
             ds.Tables["Customers"].Rows.Add(r);
             label2.Text = ds.Tables[0].Rows.Count.ToString();
 
