@@ -23,7 +23,7 @@ namespace ADODemo
             //Display all customers in the dataGridView1
             //dataGridView1.DataSource = context.Customers.ToList();
 
-            
+
 
 
             //Display one CustomerName in Label1
@@ -78,7 +78,7 @@ namespace ADODemo
 
             //EXERCISE WORKSHOP
             // 1.
-            DafestyEntities3 context2 = new DafestyEntities3();
+            //DafestyEntities3 context2 = new DafestyEntities3();
             //dataGridView1.DataSource = context2.Movies.ToList();
             // 2.
             //var q = from x in context2.Movies.OrderBy(x => x.MovieTitle) select x;
@@ -112,14 +112,11 @@ namespace ADODemo
             //var q = from x in context2.Movies.Where(x => x.Rating == "R") select new {x.VideoCode,x.MovieTitle, x.RentalPrice };
             //dataGridView1.DataSource = q.To List();
 
-            //10. 
-            var queryGroupTotalStock = from x in context2.Movies group x by x.MovieType into g select new {g.Key, totalStock = g.Sum(z=> z.TotalStock)};
+            //10.
+            //var queryGroupTotalStock = from x in context2.Movies group x by x.MovieType into g select new {g.Key, totalStock = g.Sum(z=> z.TotalStock)};
+            //dataGridView1.DataSource = queryGroupTotalStock.ToList();
 
 
-
-            dataGridView1.DataSource = queryGroupTotalStock.ToList();
-            
-            
 
             //11.
             //var q = from x in context2.Movies.Where(x => x.VideoCode == 5) select x;
@@ -146,6 +143,68 @@ namespace ADODemo
             //Delete.  Remove()
             //context2.Movies.Remove(m);
             //context2.SaveChanges();
+
+            DafestyEntities4 context4 = new DafestyEntities4();
+
+            //4a.
+            //var q = from x in context4.Movies1.Where(x => x.VideoCode == 5) select x;
+            //Movie m = q.First();
+            ////dataGridView1.DataSource = q.ToList();
+            ////label1.Text = m.MovieTitle.ToString();
+
+            ////4b. Change rental cost of movie with videoCode 5, to 1.80
+
+            //m.RentalCost = (float)1.80;
+            //context4.SaveChanges();
+            //dataGridView1.DataSource = q.ToList();
+
+            //4c. Create movie with id 400 - Error: Object reference not set to an instance of an object
+            //Movie newM = new Movie();
+            //newM.Genre = "Drama";
+            //newM.Producer.ProducerID = "400";
+            //newM.MovieTitle = "Sully";
+            //newM.Producer.ProducerName = "Warner Brothers";
+            //newM.RentalCost = (float)2.50;
+            //newM.Rating = "U";
+            //newM.TotalStock = 4;
+            //Producer newP = new Producer();
+            //newP.ProducerID = "400";
+            //newP.ProducerName = "Warner Brothers";
+
+            //context4.Movies1.Add(newM);
+            //context4.Producers.Add(newP);
+
+            //context4.SaveChanges();
+            //var newQ = from x in context4.Movies1.Where(x => x.Producer.ProducerID == "400") select x;
+            //dataGridView1.DataSource = newQ.ToList();
+
+            //4d. From Movie side: 1 to Many
+            //Movie demoMan = context4.Movies1.Where(x => x.VideoCode == 4).First();
+            //Producer p = context4.Producers.Where(x => x.ProducerID == "Pixar").First();
+            //demoMan.Producer = p;
+            //context4.SaveChanges();
+            //var query = from x in context4.Movies1.Where(x => x.VideoCode == 4) select x;
+            //dataGridView1.DataSource = query.ToList();
+
+            //4e: From Producer Side: Many to 1
+            //Movie DH2 = context4.Movies1.Where(x => x.VideoCode == 11).First();
+            //Producer U = context4.Producers.Where(x => x.ProducerID == "Warner").First();
+            //U.Movies.Add(DH2);
+            //context4.SaveChanges();
+
+            //var query = from x in context4.Movies1.Where(x => x.VideoCode == 11) select x;
+            //Movie n = query.First();
+            //label1.Text = n.Producer.ProducerID.ToString();
+
+            //4f: 
+
+            var query = from x in context4.Movies1.Where(x => x.Producer.ProducerID == "400") select x;
+            Movie deleteM = query.First();
+            dataGridView1.DataSource = deleteM.MovieTitle.ToList();
+            //context4.Movies1.Remove(deleteM);
+
+
+
 
 
 
