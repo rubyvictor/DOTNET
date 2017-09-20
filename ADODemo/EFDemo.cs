@@ -75,48 +75,77 @@ namespace ADODemo
             ////Anonymous OBJECT
             //cList.Add(new Customer());
 
+
+            //EXERCISE WORKSHOP
+            // 1.
             DafestyEntities3 context2 = new DafestyEntities3();
             //dataGridView1.DataSource = context2.Movies.ToList();
-
+            // 2.
             //var q = from x in context2.Movies.OrderBy(x => x.MovieTitle) select x;
             //dataGridView1.DataSource = q.ToList();
 
+            //3.
             //var q = from x in context2.Movies.OrderByDescending(x => x.RentalPrice) select x;
             //dataGridView1.DataSource = q.ToList();
 
+            //4.
             //var q = from x in context2.Movies.Where(x => x.Rating == "R") select x;
             //dataGridView1.DataSource = q.ToList();
 
+            //5.
             //List<Movy> movieList = (context2.Movies.Where(x => x.MovieType == "Sci-fi" && x.ProducerID == "Warner")).ToList();
             //dataGridView1.DataSource = movieList;
 
+            //6.
             //int count = context2.Movies.Count(x => x.MovieType == "Action");
             //label1.Text = count.ToString();
 
+            //7.
             //int? sumAction = context2.Movies.Where(x=> x.MovieType == "Action").Sum(x => x.TotalStock);
             //label1.Text = sumAction.ToString();
 
+            //8.
             //double? avgComedy = context2.Movies.Where(x=>x.MovieType == "Comedy").Average(x => x.RentalPrice);
             //label1.Text = avgComedy.ToString();
 
+            //9.
             //var q = from x in context2.Movies.Where(x => x.Rating == "R") select new {x.VideoCode,x.MovieTitle, x.RentalPrice };
-            //dataGridView1.DataSource = q.ToList();
+            //dataGridView1.DataSource = q.To List();
 
-            //int? sumCategory = context2.Movies.GroupBy(x=>x.MovieType).Sum(x => x.TotalStock);
-            //label1.Text = sumCategory.ToString();
+            //10. 
+            var queryGroupTotalStock = from x in context2.Movies group x by x.MovieType into g select new {g.Key, totalStock = g.Sum(z=> z.TotalStock)};
 
+
+
+            dataGridView1.DataSource = queryGroupTotalStock.ToList();
             
+            
+
+            //11.
             //var q = from x in context2.Movies.Where(x => x.VideoCode == 5) select x;
             //var q = from x in context2.Movies.Where(x => x.VideoCode == 5) select new { x.MovieTitle, x.Rating, x.Producer.ProducerName };
             ////Movy movie = q.First();
             ////label1.Text = movie.MovieTitle + " " + movie.Rating + movie.Producer.ProducerName;
             //dataGridView1.DataSource = q.ToList();
 
+            //12.
             //var q = from x in context2.Movies.Where(x => x.Producer.ProducerName == "Walt Disney Studio") select new {x.Producer.ProducerName,x.MovieTitle,x.MovieType};
             //dataGridView1.DataSource = q.ToList();
 
-            var q = from x in context2.Movies select new { x.Rating,x.Producer.ProducerName, x.MovieTitle, x.MovieType };
-            dataGridView1.DataSource = q.ToList();
+            //13.
+            //var q = from x in context2.Movies select new { x.Rating,x.Producer.ProducerName, x.MovieTitle, x.MovieType };
+            //dataGridView1.DataSource = q.ToList();
+
+            //Extra save changes from an update: saveChanges()
+
+            //Movy m = context2.Movies.Where(x => x.MovieTitle == "The Last Starfighter").First();
+            //m.Rating = "AA";
+            //context2.SaveChanges();
+            //label1.Text = m.Rating + " " + m.MovieTitle;
+
+            //Delete.  Remove()
+            //context2.Movies.Remove(m);
+            //context2.SaveChanges();
 
 
 
