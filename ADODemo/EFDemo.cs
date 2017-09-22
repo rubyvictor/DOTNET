@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Transactions;
 
 namespace ADODemo
 {
@@ -158,7 +159,7 @@ namespace ADODemo
             //context4.SaveChanges();
             //dataGridView1.DataSource = q.ToList();
 
-            //4c. Create movie with id 400 - Error: Object reference not set to an instance of an object
+            //4c.Create movie with id 400 - Error: Object reference not set to an instance of an object
             //Movie newM = new Movie();
             //newM.Genre = "Drama";
             //newM.Producer.ProducerID = "400";
@@ -167,12 +168,9 @@ namespace ADODemo
             //newM.RentalCost = (float)2.50;
             //newM.Rating = "U";
             //newM.TotalStock = 4;
-            //Producer newP = new Producer();
-            //newP.ProducerID = "400";
-            //newP.ProducerName = "Warner Brothers";
 
             //context4.Movies1.Add(newM);
-            //context4.Producers.Add(newP);
+
 
             //context4.SaveChanges();
             //var newQ = from x in context4.Movies1.Where(x => x.Producer.ProducerID == "400") select x;
@@ -198,12 +196,25 @@ namespace ADODemo
 
             //4f: 
 
-            var query = from x in context4.Movies1.Where(x => x.Producer.ProducerID == "400") select x;
-            Movie deleteM = query.First();
-            dataGridView1.DataSource = deleteM.MovieTitle.ToList();
+            //Movie deleteM = context4.Movies1.Where(x => x.Producer.ProducerID == "400").First();
+
             //context4.Movies1.Remove(deleteM);
+            //context4.SaveChanges();
 
 
+            ////Transaction block SIMILAR TO mySQL transaction block
+
+            //DafestyEntities4 context5 = new DafestyEntities4();
+
+            //using(TransactionScope ts = new TransactionScope()) //akin to begin tran in mySQL
+            //{
+            //    //some work
+            //    context5.SaveChanges();
+
+            //    //some more work
+            //    context5.SaveChanges();
+            //    ts.Complete();  // Akin to Commit in mySQL
+            //}
 
 
 

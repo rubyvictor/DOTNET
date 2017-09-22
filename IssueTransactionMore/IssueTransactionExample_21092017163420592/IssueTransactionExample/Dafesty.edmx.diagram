@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3e1d81462dd340a9afc1dcf1824067cf" Name="Diagram1">
+        <EntityTypeShape EntityType="DafestyModel.Country" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DafestyModel.Customer" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="DafestyModel.IssueTran" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DafestyModel.Movy" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DafestyModel.Producer" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="DafestyModel.ProducerWebSite" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="DafestyModel.FK_Customers_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="DafestyModel.FK_IssueTran_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="DafestyModel.FK_IssueTran_Movies1" ManuallyRouted="false" />
+        <AssociationConnector Association="DafestyModel.FK_Movies_Producers" ManuallyRouted="false" />
+        <AssociationConnector Association="DafestyModel.FK_ProducerWebSite_Producers" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

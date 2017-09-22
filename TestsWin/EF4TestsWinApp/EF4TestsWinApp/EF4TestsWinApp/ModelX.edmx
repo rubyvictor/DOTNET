@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EF4TestsModel1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="EF4TestsModel1StoreContainer">
+          <EntitySet Name="CustomerContact" EntityType="EF4TestsModel1.Store.CustomerContact" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CustomerProduct" EntityType="EF4TestsModel1.Store.CustomerProduct" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Customers" EntityType="EF4TestsModel1.Store.Customers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Products" EntityType="EF4TestsModel1.Store.Products" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_CustomerContact_Customers" Association="EF4TestsModel1.Store.FK_CustomerContact_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="CustomerContact" EntitySet="CustomerContact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerProduct_Customers" Association="EF4TestsModel1.Store.FK_CustomerProduct_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="CustomerProduct" EntitySet="CustomerProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerProduct_Products" Association="EF4TestsModel1.Store.FK_CustomerProduct_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="CustomerProduct" EntitySet="CustomerProduct" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CustomerContact">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="nvarchar" Nullable="false" MaxLength="4" />
+          <Property Name="ContactPerson" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CustomerProduct">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="CustomerID" Type="nvarchar" Nullable="false" MaxLength="4" />
+          <Property Name="ProductID" Type="nvarchar" Nullable="false" MaxLength="4" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="nvarchar" Nullable="false" MaxLength="4" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MemberCategory" Type="nvarchar" Nullable="false" MaxLength="2" />
+          <Property Name="Address" Type="nvarchar" MaxLength="65" />
+          <Property Name="City" Type="nvarchar" MaxLength="30" />
+          <Property Name="OldPostalCode" Type="nvarchar" MaxLength="4" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="6" />
+          <Property Name="CountryCode" Type="nvarchar" MaxLength="3" />
+          <Property Name="ContactTitle" Type="nvarchar" MaxLength="2" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="9" />
+          <Property Name="Extension" Type="nvarchar" MaxLength="5" />
+          <Property Name="FaxNumber" Type="nvarchar" MaxLength="30" />
+          <Property Name="EmailAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="nvarchar" Nullable="false" MaxLength="4" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_CustomerContact_Customers">
+          <End Role="Customers" Type="EF4TestsModel1.Store.Customers" Multiplicity="1" />
+          <End Role="CustomerContact" Type="EF4TestsModel1.Store.CustomerContact" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="CustomerContact">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerProduct_Customers">
+          <End Role="Customers" Type="EF4TestsModel1.Store.Customers" Multiplicity="1" />
+          <End Role="CustomerProduct" Type="EF4TestsModel1.Store.CustomerProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="CustomerProduct">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerProduct_Products">
+          <End Role="Products" Type="EF4TestsModel1.Store.Products" Multiplicity="1" />
+          <End Role="CustomerProduct" Type="EF4TestsModel1.Store.CustomerProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="CustomerProduct">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EF4TestsModel1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Products" EntityType="EF4TestsModel1.Product" />
+          <EntitySet Name="Customers" EntityType="EF4TestsModel1.Customer" />
+          <AssociationSet Name="CustomerProduct" Association="EF4TestsModel1.CustomerProduct">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Type="String" Name="ProductID" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ProductName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customers" Relationship="EF4TestsModel1.CustomerProduct" FromRole="Product" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Type="String" Name="CustomerID" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CustomerName" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Type="String" Name="MemberCategory" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" MaxLength="65" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="City" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OldPostalCode" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PostalCode" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CountryCode" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContactTitle" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PhoneNumber" MaxLength="9" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Extension" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FaxNumber" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmailAddress" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Notes" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Products" Relationship="EF4TestsModel1.CustomerProduct" FromRole="Customer" ToRole="Product" />
+        </EntityType>
+        <Association Name="CustomerProduct">
+          <End Type="EF4TestsModel1.Customer" Role="Customer" Multiplicity="*" />
+          <End Type="EF4TestsModel1.Product" Role="Product" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EF4TestsModel1StoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="EF4TestsModel1.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="EF4TestsModel1.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="FaxNumber" ColumnName="FaxNumber" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="ContactTitle" ColumnName="ContactTitle" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="OldPostalCode" ColumnName="OldPostalCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="MemberCategory" ColumnName="MemberCategory" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="CustomerProduct" TypeName="EF4TestsModel1.CustomerProduct" StoreEntitySet="CustomerProduct">
+            <EndProperty Name="Product">
+              <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+            </EndProperty>
+            <EndProperty Name="Customer">
+              <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ModelX" ZoomLevel="131">
+        <EntityTypeShape EntityType="EF4TestsModel1.Product" Width="1.5" PointX="0.75" PointY="1.125" Height="1.4279589843749994" />
+        <EntityTypeShape EntityType="EF4TestsModel1.Customer" Width="1.5" PointX="3.125" PointY="1.125" Height="3.4001269531249996" />
+        <AssociationConnector Association="EF4TestsModel1.CustomerProduct" >
+          <ConnectorPoint PointX="3.125" PointY="1.9211531575520833" />
+          <ConnectorPoint PointX="2.25" PointY="1.9211531575520833" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

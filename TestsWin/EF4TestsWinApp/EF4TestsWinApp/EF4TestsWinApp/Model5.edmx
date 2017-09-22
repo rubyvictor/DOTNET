@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model5.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="Model5StoreContainer">
+          <EntitySet Name="TimeStampTest" EntityType="Model5.Store.TimeStampTest" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="TimeStampTest">
+          <Key>
+            <PropertyRef Name="F1" />
+          </Key>
+          <Property Name="F1" Type="int" Nullable="false" />
+          <Property Name="F2" Type="nvarchar" MaxLength="50" />
+          <Property Name="TS" Type="timestamp" StoreGeneratedPattern="Computed" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model5" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="Model5Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TimeStampTests" EntityType="Model5.TimeStampTest" /></EntityContainer>
+        <EntityType Name="TimeStampTest">
+          <Key>
+            <PropertyRef Name="F1" /></Key>
+          <Property Type="Int32" Name="F1" Nullable="false" />
+          <Property Type="String" Name="F2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Binary" Name="TS" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" cg:GetterAccess="Private" cg:SetterAccess="Private" /></EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="Model5" />
+        <Alias Key="Target" Value="Model5.Store" />
+        <EntityContainerMapping CdmEntityContainer="Model5Container" StorageEntityContainer="Model5StoreContainer">
+          <EntitySetMapping Name="TimeStampTests">
+            <EntityTypeMapping TypeName="Model5.TimeStampTest">
+              <MappingFragment StoreEntitySet="TimeStampTest">
+                <ScalarProperty Name="TS" ColumnName="TS" />
+                <ScalarProperty Name="F2" ColumnName="F2" />
+                <ScalarProperty Name="F1" ColumnName="F1" /></MappingFragment></EntityTypeMapping></EntitySetMapping></EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="Model5" >
+        <EntityTypeShape EntityType="Model5.TimeStampTest" Width="1.5" PointX="0.75" PointY="0.75" Height="1.427958984375" /></Diagram></edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
