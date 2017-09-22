@@ -20,7 +20,7 @@ namespace testMapping
         private void Form1_Load(object sender, EventArgs e)
         {
             DafestyEntities context = new DafestyEntities();
-            label1.Text = context.ProducerWebSites.ToString();
+            MessageBox.Show(context.Producers.ToString());
         }
     }
 }
