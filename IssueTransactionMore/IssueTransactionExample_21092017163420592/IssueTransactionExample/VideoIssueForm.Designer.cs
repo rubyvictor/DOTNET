@@ -50,7 +50,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(63, 54);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 24);
+            this.label1.Size = new System.Drawing.Size(143, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Customer Id";
             // 
@@ -59,7 +59,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(63, 130);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 24);
+            this.label2.Size = new System.Drawing.Size(141, 29);
             this.label2.TabIndex = 1;
             this.label2.Text = "Video Code";
             // 
@@ -68,7 +68,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(72, 210);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 24);
+            this.label3.Size = new System.Drawing.Size(126, 29);
             this.label3.TabIndex = 2;
             this.label3.Text = "Date Issue";
             // 
@@ -77,7 +77,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(72, 263);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 24);
+            this.label4.Size = new System.Drawing.Size(113, 29);
             this.label4.TabIndex = 3;
             this.label4.Text = "Date Due";
             // 
@@ -86,7 +86,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(72, 330);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 24);
+            this.label5.Size = new System.Drawing.Size(109, 29);
             this.label5.TabIndex = 4;
             this.label5.Text = "Remarks";
             // 
@@ -94,14 +94,14 @@
             // 
             this.CIDTextBox.Location = new System.Drawing.Point(220, 54);
             this.CIDTextBox.Name = "CIDTextBox";
-            this.CIDTextBox.Size = new System.Drawing.Size(100, 29);
+            this.CIDTextBox.Size = new System.Drawing.Size(100, 34);
             this.CIDTextBox.TabIndex = 5;
             // 
             // VideoCodeTextBox
             // 
             this.VideoCodeTextBox.Location = new System.Drawing.Point(220, 127);
             this.VideoCodeTextBox.Name = "VideoCodeTextBox";
-            this.VideoCodeTextBox.Size = new System.Drawing.Size(100, 29);
+            this.VideoCodeTextBox.Size = new System.Drawing.Size(100, 34);
             this.VideoCodeTextBox.TabIndex = 6;
             // 
             // DateIssueDTP
@@ -109,7 +109,7 @@
             this.DateIssueDTP.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateIssueDTP.Location = new System.Drawing.Point(220, 213);
             this.DateIssueDTP.Name = "DateIssueDTP";
-            this.DateIssueDTP.Size = new System.Drawing.Size(200, 29);
+            this.DateIssueDTP.Size = new System.Drawing.Size(200, 34);
             this.DateIssueDTP.TabIndex = 7;
             // 
             // DateDueDTP
@@ -118,7 +118,7 @@
             this.DateDueDTP.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateDueDTP.Location = new System.Drawing.Point(220, 259);
             this.DateDueDTP.Name = "DateDueDTP";
-            this.DateDueDTP.Size = new System.Drawing.Size(200, 29);
+            this.DateDueDTP.Size = new System.Drawing.Size(200, 34);
             this.DateDueDTP.TabIndex = 8;
             // 
             // RemarksTextBox
@@ -134,7 +134,7 @@
             this.CustomerNameTextBox.Location = new System.Drawing.Point(220, 89);
             this.CustomerNameTextBox.Name = "CustomerNameTextBox";
             this.CustomerNameTextBox.ReadOnly = true;
-            this.CustomerNameTextBox.Size = new System.Drawing.Size(256, 29);
+            this.CustomerNameTextBox.Size = new System.Drawing.Size(256, 34);
             this.CustomerNameTextBox.TabIndex = 10;
             // 
             // MovieTitleTextBox
@@ -142,7 +142,7 @@
             this.MovieTitleTextBox.Location = new System.Drawing.Point(220, 162);
             this.MovieTitleTextBox.Name = "MovieTitleTextBox";
             this.MovieTitleTextBox.ReadOnly = true;
-            this.MovieTitleTextBox.Size = new System.Drawing.Size(256, 29);
+            this.MovieTitleTextBox.Size = new System.Drawing.Size(256, 34);
             this.MovieTitleTextBox.TabIndex = 11;
             // 
             // SubmitButton
@@ -176,7 +176,7 @@
             // 
             // VideoIssueForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(514, 482);
             this.Controls.Add(this.MovieLookupButton);
@@ -216,10 +216,10 @@
         private System.Windows.Forms.DateTimePicker DateIssueDTP;
         private System.Windows.Forms.DateTimePicker DateDueDTP;
         private System.Windows.Forms.TextBox RemarksTextBox;
-        private System.Windows.Forms.TextBox CustomerNameTextBox;
         private System.Windows.Forms.TextBox MovieTitleTextBox;
         private System.Windows.Forms.Button SubmitButton;
         private System.Windows.Forms.Button CustomerLookupButton;
         private System.Windows.Forms.Button MovieLookupButton;
+        public System.Windows.Forms.TextBox CustomerNameTextBox;
     }
 }
