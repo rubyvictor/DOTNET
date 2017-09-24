@@ -16,7 +16,15 @@ namespace IssueTransactionExample
         {
             get { return dataGridView1.CurrentRow.Cells[0].Value.ToString(); }
         }
-        public CustomerSearchForm()
+
+        public string CIDValue2
+        {
+            get
+            {
+                return dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            }
+        }
+        public CustomerSearchForm(VideoIssueForm videoIssueForm)
         {
             InitializeComponent();
         }

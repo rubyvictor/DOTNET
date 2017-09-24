@@ -43,6 +43,8 @@
             this.SubmitButton = new System.Windows.Forms.Button();
             this.CustomerLookupButton = new System.Windows.Forms.Button();
             this.MovieLookupButton = new System.Windows.Forms.Button();
+            this.totalStockBox = new System.Windows.Forms.TextBox();
+            this.NumberRentedBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -173,12 +175,29 @@
             this.MovieLookupButton.TabIndex = 14;
             this.MovieLookupButton.Text = "...";
             this.MovieLookupButton.UseVisualStyleBackColor = true;
+            this.MovieLookupButton.Click += new System.EventHandler(this.VideoLookupButtonClicked);
+            // 
+            // totalStockBox
+            // 
+            this.totalStockBox.Location = new System.Drawing.Point(68, 378);
+            this.totalStockBox.Name = "totalStockBox";
+            this.totalStockBox.Size = new System.Drawing.Size(100, 34);
+            this.totalStockBox.TabIndex = 15;
+            // 
+            // NumberRentedBox
+            // 
+            this.NumberRentedBox.Location = new System.Drawing.Point(68, 418);
+            this.NumberRentedBox.Name = "NumberRentedBox";
+            this.NumberRentedBox.Size = new System.Drawing.Size(100, 34);
+            this.NumberRentedBox.TabIndex = 16;
             // 
             // VideoIssueForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(514, 482);
+            this.Controls.Add(this.NumberRentedBox);
+            this.Controls.Add(this.totalStockBox);
             this.Controls.Add(this.MovieLookupButton);
             this.Controls.Add(this.CustomerLookupButton);
             this.Controls.Add(this.SubmitButton);
@@ -221,5 +240,7 @@
         private System.Windows.Forms.Button CustomerLookupButton;
         private System.Windows.Forms.Button MovieLookupButton;
         public System.Windows.Forms.TextBox CustomerNameTextBox;
+        private System.Windows.Forms.TextBox totalStockBox;
+        private System.Windows.Forms.TextBox NumberRentedBox;
     }
 }
