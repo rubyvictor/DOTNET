@@ -35,7 +35,7 @@ namespace IssueTransactionExample
             {
                 using (DafestyEntities context = new DafestyEntities())
                 {
-                    short searchVID = Convert.ToInt16(VideoCodeTextBox.Text.Trim());
+                    short searchVID = Convert.ToInt16(VideoCodeTextBox.Text);
                     try
                     {
 
@@ -61,26 +61,35 @@ namespace IssueTransactionExample
             short vc = Convert.ToInt16(VideoCodeTextBox.Text);
             IssueTran it = new IssueTransactionExample.IssueTran();
             
-            it.CustomerID = CIDTextBox.Text;
-            it.VideoCode = Convert.ToInt16(VideoCodeTextBox.Text);
-            it.DateIssue = DateIssueDTP.Value.Date;
-
-                checkDate(DateIssueDTP.Value,DateDueDTP.Value);
-            //it.DateDue = DateDueDTP.Value.Date;
-            it.Remarks = RemarksTextBox.Text;
             
-            //Must retrieve totalStock and numberRented before checking isMovieAvailable()
+           
+            if (checkDate(DateIssueDTP.Value.Date, DateDueDTP.Value.Date) == true)
+                {
+                    it.CustomerID = CIDTextBox.Text;
+                    it.VideoCode = Convert.ToInt16(VideoCodeTextBox.Text);
+                    it.DateIssue = DateIssueDTP.Value.Date;
+                    it.DateDue = DateDueDTP.Value.Date;
+                    it.Remarks = RemarksTextBox.Text;
+                }
+                else
+                {
+                    MessageBox.Show($"Please pick a date after your borrowing date: {DateIssueDTP.Value.Date.ToShortDateString()}");
+                }
+            
+            
+
+                //Must retrieve totalStock and numberRented before checking isMovieAvailable()
 
 
-             
-                if (isMovieAvailable(Convert.ToInt16(totalStockBox.Text), Convert.ToInt16(NumberRentedBox.Text)) == true)
+
+                if ((isMovieAvailable(Convert.ToInt16(totalStockBox.Text), Convert.ToInt16(NumberRentedBox.Text)) == true) && (Convert.ToInt16(NumberRentedBox.Text)<Convert.ToInt16(totalStockBox.Text)))
                 {
                     it.RentalStatus = "OUT";
-                }else
+                } else
                 {
                     MessageBox.Show($"The movie {MovieTitleTextBox.Text.ToString()} is out of stock. Please borrow another one.");
                 }
-            it.RentalStatus = "OUT";
+            
 
             context.IssueTrans.Add(it);
 
@@ -181,30 +190,26 @@ namespace IssueTransactionExample
 
         }
 
-        DateTime dateBorrowed;
-        DateTime dueDate;
-        public void checkDate(DateTime? issueDate, DateTime? dateDue)
+        
+        public bool checkDate(DateTime issueDate, DateTime dateDue)
         {
             if ((issueDate == null) || (dateDue == null))
             {
                 throw new NotImplementedException();
             } else
             {
-                dateBorrowed = (DateTime)issueDate;
-                dueDate = (DateTime)dateDue;
-                DafestyEntities context = new DafestyEntities();
-                IssueTran it = context.IssueTrans.First();
 
-                it.DateDue = dateDue;
-                it.DateIssue = issueDate;
                 if (dateDue > issueDate)
                 {
-                    dateDue = DateDueDTP.Value.Date;
+                    return true;
+                    //dateDue = DateDueDTP.Value.Date;
+                    //issueDate = DateIssueDTP.Value.Date;
                 }
                 else
                 {
-                    MessageBox.Show($"Please pick a date after your borrowing date: {it.DateIssue.Value.Date.ToShortDateString()}");
+                    return false;
                 }
+                
             }
 
         }
