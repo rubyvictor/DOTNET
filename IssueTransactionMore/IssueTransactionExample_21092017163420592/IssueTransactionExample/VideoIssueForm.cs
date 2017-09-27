@@ -27,7 +27,7 @@ namespace IssueTransactionExample
         private void VideoIssueForm_Load(object sender, EventArgs e)
         {
             DateDueDTP.Value = DateTime.Now.AddDays(3);
-        }
+        } 
 
         public string FindVideoNameFromCode
         {
